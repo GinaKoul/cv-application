@@ -1,18 +1,22 @@
+import { useState } from "react";
+import { DtPicker } from "react-calendar-datetime-picker";
+import "react-calendar-datetime-picker/dist/style.css";
+import { dateFull } from "./date.jsx";
 import Fieldset from "./Fieldset.jsx";
 import InputField from "./InputField.jsx";
 import TextareaField from "./TextareaField.jsx";
 import Button from "./Button.jsx";
 import Section from "./Section.jsx";
 import Info from "./Info.jsx";
-import { useState, UseState } from "react";
 
 export default function Work() {
   const [companyName, setCompanyName] = useState("");
   const [positionTitle, setPositionTitle] = useState("");
   const [mainResponsibilities, setMainResponsibilities] = useState("");
-  const [workFrom, setWorkFrom] = useState("");
-  const [workUntil, setWorkUntil] = useState("");
+  const [date, setDate] = useState(null);
   const [buttonState, setButtonState] = useState("submit");
+
+  const fullDate = dateFull(date?.from, date?.to);
 
   function handleClick() {
     setButtonState(buttonState === "submit" ? "edit" : "submit");
@@ -20,18 +24,17 @@ export default function Work() {
 
   if (buttonState === "edit") {
     return (
-        <Section title="Practical Experience">
+      <Section title="Practical Experience" separation="true">
         <Info title="Company Name" text={companyName} />
         <Info title="Position Title" text={positionTitle} />
         <Info
           title="Main responsibilities of your jobs"
           text={mainResponsibilities}
         />
-        <Info title="Work starting date" text={workFrom} />
-        <Info title="Work ending date" text={workUntil} />
+        <Info title="Work from - until" text={fullDate} />
         <Button title="Edit" handleClick={handleClick} />
       </Section>
-    )
+    );
   }
 
   return (
@@ -56,21 +59,13 @@ export default function Work() {
         value={mainResponsibilities}
         handleChange={(e) => setMainResponsibilities(e.target.value)}
       />
-      <InputField
-        id="workFrom"
-        label="Work starting date"
-        type="date"
-        value={workFrom}
-        handleChange={(e) => setWorkFrom(e.target.value)}
+      <DtPicker
+        type="range"
+        initValue={date}
+        onChange={setDate}
+        isRequired="true"
       />
-      <InputField
-        id="workUntil"
-        label="Work ending date"
-        type="date"
-        value={workUntil}
-        handleChange={(e) => setWorkUntil(e.target.value)}
-      />
-        <Button title="Save" handleClick={handleClick} />
+      <Button title="Save" handleClick={handleClick} />
     </Fieldset>
   );
 }
