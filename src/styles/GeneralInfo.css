@@ -1,0 +1,15 @@
+.cv-top {
+  display: flex;
+  justify-content: space-between;
+  text-align: start;
+  flex-wrap: wrap;
+}
+
+.cv-top section {
+  margin-left: auto;
+}
+
+.cv-top button {
+  flex: 0 0 100%;
+  margin-left: auto;
+}

@@ -1,11 +1,17 @@
-export default function InputField({ id, label, type, value, handleChange }) {
+export default function TextareaField({
+  id,
+  label,
+  value,
+  handleChange,
+  rows = 4,
+}) {
   return (
     <>
       <label htmlFor={id}>{label}</label>
       <br />
-      <input
+      <textarea
         id={id}
-        type={type}
+        rows={rows}
         name={id}
         value={value}
         onChange={handleChange}
