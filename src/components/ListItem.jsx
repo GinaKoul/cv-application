@@ -8,7 +8,8 @@ export default function ListItem({
   date,
   text,
   state,
-  handleClick,
+  handleEdit,
+  handleDelete,
 }) {
   const fullDate = dateFull(date?.from, date?.to);
 
@@ -20,7 +21,10 @@ export default function ListItem({
       </p>
       {text !== "" && <p>{text}</p>}
       {!state && (
-        <Button title="Edit" datatype="edit" handleClick={handleClick} />
+        <>
+          <Button title="Edit" handleClick={handleEdit} />
+          <Button title="Delete" handleClick={handleDelete} />
+        </>
       )}
     </li>
   );

@@ -54,23 +54,30 @@ export default function SectionMulti({ sectionTitle, fieldsetTitle, fields }) {
     setCurrentItemId(null);
     setCurrentState(null);
   }
-  function handleClick(e) {
-    const buttonType = e.target.getAttribute("data-type");
-    if (buttonType === "edit") {
-      const currentId = e.target.closest("li").getAttribute("data-id");
-      const currentItem = list.find((item) => item.id === currentId);
-      setTitle(currentItem.title);
-      setSubtitle(currentItem.subtitle);
-      setDate(currentItem.date);
-      setCurrentItemId(currentId);
-    }
-    setCurrentState(buttonType);
+
+  function handleAdd() {
+    setCurrentState("add");
+  }
+
+  function handleDelete(e) {
+    const currentId = e.target.closest("li").getAttribute("data-id");
+    setList(list.filter((item) => item.id !== currentId));
+  }
+
+  function handleEdit(e) {
+    const currentId = e.target.closest("li").getAttribute("data-id");
+    const currentItem = list.find((item) => item.id === currentId);
+    setTitle(currentItem.title);
+    setSubtitle(currentItem.subtitle);
+    setDate(currentItem.date);
+    setCurrentItemId(currentId);
+    setCurrentState("edit");
   }
   return (
     <Section title={sectionTitle} separation="true">
       <ul className="cv-list">
         {list.map((item) => {
-          if (currentState === "add" || item.id !== currentItemId) {
+          if (currentState === "add" || item?.id !== currentItemId) {
             return (
               <ListItem
                 key={item.id}
@@ -80,15 +87,14 @@ export default function SectionMulti({ sectionTitle, fieldsetTitle, fields }) {
                 date={item.date}
                 text={text}
                 state={currentState}
-                handleClick={handleClick}
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
               />
             );
           }
         })}
       </ul>
-      {!currentState && (
-        <Button title="Add" datatype="add" handleClick={handleClick} />
-      )}
+      {!currentState && <Button title="Add" handleClick={handleAdd} />}
       {currentState && (
         <Fieldset title={fieldsetTitle}>
           {fields.map((field) => {
