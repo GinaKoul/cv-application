@@ -1,4 +1,4 @@
-// import { useState } from "react";
+import { dateFull } from "./date.jsx";
 import Button from "./Button.jsx";
 
 export default function ListItem({
@@ -10,14 +10,18 @@ export default function ListItem({
   state,
   handleClick,
 }) {
+  const fullDate = dateFull(date?.from, date?.to);
+
   return (
-    <li dataId={id}>
+    <li data-id={id}>
       <h3>{title}</h3>
       <p className="subtitle">
-        <i>{subtitle}</i> [{date}]
+        <i>{subtitle}</i> [{fullDate}]
       </p>
-      {text && <p>text</p>}
-      {state === "edit" && <Button title="Edit" handleClick={handleClick} />}
+      {text !== "" && <p>{text}</p>}
+      {!state && (
+        <Button title="Edit" datatype="edit" handleClick={handleClick} />
+      )}
     </li>
   );
 }

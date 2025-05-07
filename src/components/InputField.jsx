@@ -2,7 +2,6 @@ export default function InputField({ id, label, type, value, handleChange }) {
   return (
     <>
       <label htmlFor={id}>{label}</label>
-      <br />
       <input
         id={id}
         type={type}
@@ -11,7 +10,6 @@ export default function InputField({ id, label, type, value, handleChange }) {
         onChange={handleChange}
         autoComplete="true"
       />
-      <br />
     </>
   );
 }

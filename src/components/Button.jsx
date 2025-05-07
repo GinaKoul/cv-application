@@ -1,6 +1,11 @@
-export default function Button({ title, type = "button", handleClick }) {
+export default function Button({
+  title,
+  type = "button",
+  datatype,
+  handleClick,
+}) {
   return (
-    <button type={type} onClick={handleClick}>
+    <button type={type} data-type={datatype} onClick={handleClick}>
       {title}
     </button>
   );

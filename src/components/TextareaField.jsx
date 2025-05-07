@@ -8,7 +8,6 @@ export default function TextareaField({
   return (
     <>
       <label htmlFor={id}>{label}</label>
-      <br />
       <textarea
         id={id}
         rows={rows}
@@ -17,7 +16,6 @@ export default function TextareaField({
         onChange={handleChange}
         autoComplete="true"
       />
-      <br />
     </>
   );
 }
