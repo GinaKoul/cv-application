@@ -1,7 +1,8 @@
+import { memo } from "react";
 import { dateFull } from "./date.jsx";
 import Button from "./Button.jsx";
 
-export default function ListItem({
+export const ListItem = memo(function ListItem({
   id,
   title,
   subtitle,
@@ -19,7 +20,7 @@ export default function ListItem({
       <p className="subtitle">
         <i>{subtitle}</i> [{fullDate}]
       </p>
-      {text !== "" && <p>{text}</p>}
+      {text !== "" && <p className="text">{text}</p>}
       {!state && (
         <>
           <Button title="Edit" handleClick={handleEdit} />
@@ -28,4 +29,4 @@ export default function ListItem({
       )}
     </li>
   );
-}
+});

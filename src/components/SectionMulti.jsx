@@ -6,7 +6,7 @@ import TextareaField from "./TextareaField.jsx";
 import Datepicker from "./Datepicker.jsx";
 import Button from "./Button.jsx";
 import Section from "./Section.jsx";
-import ListItem from "./ListItem.jsx";
+import { ListItem } from "./ListItem.jsx";
 
 export default function SectionMulti({ sectionTitle, fieldsetTitle, fields }) {
   const [title, setTitle] = useState("");
@@ -131,7 +131,7 @@ export default function SectionMulti({ sectionTitle, fieldsetTitle, fields }) {
               );
             }
           })}
-          <Button title="Save" datatype="submit" handleClick={handleSubmit} />
+          <Button title="Save" handleClick={handleSubmit} />
         </Fieldset>
       )}
     </Section>

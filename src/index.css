@@ -19,6 +19,14 @@
   width: 100%;
 }
 
+header {
+  margin-bottom: 64px;
+}
+
+footer {
+  margin-top: 128px;
+}
+
 header,
 footer {
   padding: 16px 24px;
@@ -32,17 +40,30 @@ form {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
 }
 
 h1 {
   font-size: 2.5rem;
   font-weight: 600;
-  padding: 0;
 }
 
 h2 {
   font-size: 2rem;
+  margin: 0 0 24px 0;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin: 0 0 24px 0;
+}
+
+h4 {
+  font-size: 1.25rem;
+  margin: 8px 0 24px 0;
+}
+
+section p {
+  margin: 0 0 16px 0;
 }
 
 a {
@@ -71,6 +92,14 @@ body {
   min-height: 100vh;
 }
 
+section {
+  margin-bottom: 64px;
+}
+
+section section {
+  margin-bottom: 0;
+}
+
 button {
   outline: none;
   border-radius: 8px;
@@ -94,6 +123,10 @@ button:focus-visible {
   border: 2px solid var(--main-focus-color);
 }
 
+form > button {
+  margin: 16px 0 32px 0;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -101,6 +134,16 @@ button:focus-visible {
   }
   a:hover {
     color: #747bff;
+  }
+}
+
+@media (max-width: 832px) {
+  section {
+    margin: 0 16px 56px 16px;
+  }
+
+  form > button {
+    margin: 16px;
   }
 }
 

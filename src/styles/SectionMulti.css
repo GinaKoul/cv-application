@@ -7,15 +7,23 @@ ul.cv-list {
 .cv-list li {
   display: flex;
   flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
-.cv-list li h3 {
+.cv-list li h4,
+.cv-list:has(.text) .subtitle {
   flex: 0 0 100%;
   margin-bottom: 8px;
 }
 
-.cv-list li button {
+.cv-list li button:has(+ button) {
   margin-left: auto;
+}
+
+.cv-list li button {
+  margin-top: 0;
 }
 
 fieldset {
@@ -67,4 +75,33 @@ textarea:focus {
 input,
 textarea {
   margin-bottom: 24px;
+}
+
+.header,
+.react-calendar-datetime-picker .daysList .is-selected-day-from,
+.react-calendar-datetime-picker .daysList .is-selected-day-to {
+  background-color: #535bf2 !important;
+}
+
+.react-calendar-datetime-picker .daysList .is-selected-day-range {
+  color: #1c27e6 !important;
+  background-color: #c8caf0 !important;
+}
+
+.react-calendar-datetime-picker .daysList .is-today {
+  box-shadow: inset 0 0 0 2px #535bf2 !important;
+}
+
+.react-calendar-datetime-picker .is-selectedYearRef,
+.react-calendar-datetime-picker .monthList_month.is-selected-month {
+  color: #535bf2 !important;
+}
+
+@media (max-width: 832px) {
+  .cv-list li {
+    display: block;
+  }
+  .cv-list button + button {
+    margin-left: 16px;
+  }
 }

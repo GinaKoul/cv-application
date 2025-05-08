@@ -1,7 +1,8 @@
-import GeneralInfo from "./GeneralInfo.jsx";
 import { education } from "./education.jsx";
 import { work } from "./work.jsx";
+import GeneralInfo from "./GeneralInfo.jsx";
 import SectionMulti from "./SectionMulti.jsx";
+import Button from "./Button.jsx";
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
         <h1>CV Application</h1>
       </header>
       <form>
+        <Button title="Print" handleClick={() => window.print()} />
         <GeneralInfo />
         <SectionMulti
           sectionTitle="Educational Experience"
