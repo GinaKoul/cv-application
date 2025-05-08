@@ -5,18 +5,26 @@ import SectionMulti from "./SectionMulti.jsx";
 
 export default function App() {
   return (
-    <form>
-      <GeneralInfo />
-      <SectionMulti
-        sectionTitle="Educational Experience"
-        fieldsetTitle="Education"
-        fields={education}
-      />
-      <SectionMulti
-        sectionTitle="Practical Experience"
-        fieldsetTitle="Position details"
-        fields={work}
-      />
-    </form>
+    <>
+      <header>
+        <h1>CV Application</h1>
+      </header>
+      <form>
+        <GeneralInfo />
+        <SectionMulti
+          sectionTitle="Educational Experience"
+          fieldsetTitle="Education"
+          fields={education}
+        />
+        <SectionMulti
+          sectionTitle="Practical Experience"
+          fieldsetTitle="Position details"
+          fields={work}
+        />
+      </form>
+      <footer>
+        <p>&copy; Gina Kouliaki</p>
+      </footer>
+    </>
   );
 }

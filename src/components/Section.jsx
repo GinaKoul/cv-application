@@ -1,7 +1,7 @@
 export default function Section({ title, separation = false, children }) {
   return (
     <section>
-      <h2>{title}</h2>
+      <h3>{title}</h3>
       {separation && <hr />}
       {children}
     </section>

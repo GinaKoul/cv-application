@@ -15,7 +15,7 @@ export default function ListItem({
 
   return (
     <li data-id={id}>
-      <h3>{title}</h3>
+      <h4>{title}</h4>
       <p className="subtitle">
         <i>{subtitle}</i> [{fullDate}]
       </p>

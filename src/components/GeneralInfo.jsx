@@ -20,7 +20,7 @@ export default function GeneralInfo() {
   if (buttonState === "edit") {
     return (
       <div className="cv-top">
-        <h1>{firstName + " " + lastName}</h1>
+        <h2>{firstName + " " + lastName}</h2>
         <Section title="Contact">
           <Link title="Email" linkUrl={"mailto:" + email} text={email} />
           <Link title="Tel" linkUrl={"tel:" + phoneNumber} text={phoneNumber} />
